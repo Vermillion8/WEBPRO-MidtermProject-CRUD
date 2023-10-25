@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SignupController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/', [PostController::class, 'index']);
 
 Route::get('/post/{post:slug}', [PostController::class, 'show']);
 Route::get('/profile/{user:username}', [ProfileController::class, 'index']);
-Route::get('/search', 'PostController@search')->name('search');
+Route::get('/search', [PostController::class, 'search'])->name('search');
 
 Route::get('/signup', [SignupController::class, 'index'])->middleware('guest');
 Route::post('/signup', [SignupController::class, 'store'])->middleware('guest');

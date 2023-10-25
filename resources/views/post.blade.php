@@ -8,10 +8,17 @@
         </a>
     </div>
 
-    <div class="bg-gray-100 p-6 rounded-2xl mt-8"><p></p>
+    <div class="bg-gray-100 p-6 rounded-2xl mt-8">
         <a href="/profile/{{ $post->user->username }}" class="font-bold text-its-blue">{{ $post->user->username }}</a>
         <span class="text-gray-400"> on {{ $post->created_at->format('M d, Y') }} at {{ $post->created_at->format('h:i A') }}</span>
-        <h1 class="mt-4 text-3xl font-bold">{{ $post->text }}</h1>
+
+        <h1 class="mt-4 text-2xl font-bold">{{ $post->text }}</h1>
+
+        @if ($selectedCategory)
+            <p class="mt-2 bg-blue-700 text-white text-xs rounded-lg py-1 px-4 inline-block">
+                Category: {{ $selectedCategory->name }}
+            </p>
+        @endif
 
         @auth
         @if (auth()->user()->id == $post->user_id)
@@ -60,7 +67,6 @@
             <p class="mt-6"><a href="/login" class="text-its-blue">Log in</a> to add comment</p>
         @endauth
     </div>
-
 
     @if (count($post->comments) > 0)
     <h2 class="text-2xl font-bold my-4">Comments</h2>

@@ -16,7 +16,7 @@
     <div class="flex justify-center items-center min-h-screen">
         <div class="w-full max-w-md">
             <h1 class=" text-its text-3xl font-bold text-center mb-4 flex flex-col items-center justify-center" style="color: rgb(2,56,128)">
-                reddITS
+                TrendItAll
             </h1>
             <form action="/login" method="POST" class="bg-white shadow-lg rounded px-8 py-6 mb-4">
                 @csrf
