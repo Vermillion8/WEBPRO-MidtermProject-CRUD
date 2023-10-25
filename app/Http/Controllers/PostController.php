@@ -129,6 +129,17 @@ class PostController extends Controller
 
         return redirect('/post/' . $post->slug);
     }
+
+    public function search(Request $request)
+    {
+    $keyword = $request->input('keyword');
+    
+    // Query your posts with a where clause to filter results
+    $posts = Post::where('text', 'like', '%' . $keyword . '%')->get();
+    
+    return view('home', ['posts' => $posts, 'keyword' => $keyword]);
+    }
+
 }
 ?>
 ?>
