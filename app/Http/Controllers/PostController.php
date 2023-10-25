@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use DateTime;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category; 
 
 class PostController extends Controller
 {
@@ -61,11 +62,16 @@ class PostController extends Controller
         ]);
     }
 
-    public function newpost() {
+    public function newpost()
+    {
+        $categories = Category::all(); 
+    
         return view('newpost', [
             "title" => "New Post",
+            "categories" => $categories, 
         ]);
     }
+    
 
     public function store(Request $request)
     {

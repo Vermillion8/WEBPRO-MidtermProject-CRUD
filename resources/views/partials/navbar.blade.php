@@ -2,7 +2,7 @@
 <div class="mx-auto">
     <div class="flex justify-between">
         <div>
-        <a href="/" class="flex items-center text-xl px-2 py-4 ml-8 text-white font-bold">reddITS</a>
+        <a href="/" class="flex items-center text-xl px-2 py-4 ml-8 text-white font-bold">TrendItAll</a>
         </div>
         <!-- Navbar items -->
         <div class="ml-auto flex items-center space-x-10 mr-8">
@@ -17,7 +17,7 @@
             <form method="POST" action="/logout">
                 @csrf
 
-                <button type="submit" class="px-4 py-1 text-white bg-red-600 hover:bg-red-500 border-2 border-red-600 hover:border-red-500 rounded-md font-semibold hover:transition hover:duration-50">Log out</button>
+                <button type="submit" class="px-4 py-1 text-white bg-red-600 hover:bg-red-500 border-2 border-red-600 hover:border-light blue-500 rounded-md font-semibold hover:transition hover:duration-50">Log out</button>
             </form>
         @else
             <a href="/login" class="px-4 py-1 text-white bg-green-600 hover:bg-green-500 border-2 border-green-600 hover:border-green-500 rounded-md font-semibold hover:transition hover:duration-50">Log in</a>
