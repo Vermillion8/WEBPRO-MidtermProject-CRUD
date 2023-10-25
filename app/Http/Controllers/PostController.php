@@ -56,41 +56,52 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        // Load the category relationship for the post
+        $post->load('category');
+    
         return view('post', [
             "title" => "Single Post",
-            "post" => $post
+            "post" => $post,
+            "selectedCategory" => $post->category, 
         ]);
     }
 
-    public function newpost()
+    public function newpost(Request $request)
     {
-        $categories = Category::all(); 
-    
-        return view('newpost', [
-            "title" => "New Post",
-            "categories" => $categories, 
-        ]);
+    $categories = Category::all();
+
+    // Check if a category has been selected in the form
+    $selectedCategory = $request->input('category_id');
+
+    return view('newpost', [
+        "title" => "New Post",
+        "categories" => $categories,
+        "selectedCategory" => $selectedCategory,
+    ]);
     }
-    
+
 
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'text' => 'required|max:150',
-        ]);
+{
+    $validatedData = $request->validate([
+        'text' => 'required|max:150',
+        'category_id' => 'nullable|exists:categories,id', // Validate the category ID
+    ]);
 
-        $time_now = now();
+    $time_now = now();
 
-        DB::table('posts')->insert([
-            'user_id' => auth()->user()->id,
-            'text' => $validatedData['text'],
-            'slug' => $this->slugify($validatedData['text']),
-            'created_at' => $time_now,
-            'updated_at' => $time_now,
-        ]);
+    DB::table('posts')->insert([
+        'user_id' => auth()->user()->id,
+        'text' => $validatedData['text'],
+        'category_id' => $validatedData['category_id'], // Associate the category
+        'slug' => $this->slugify($validatedData['text']),
+        'created_at' => $time_now,
+        'updated_at' => $time_now,
+    ]);
 
-        return redirect('/');
-    }
+    return redirect('/');
+}
+
 
     public function destroy(Request $request)
     {
@@ -119,4 +130,5 @@ class PostController extends Controller
         return redirect('/post/' . $post->slug);
     }
 }
+?>
 ?>
