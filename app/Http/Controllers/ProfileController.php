@@ -31,9 +31,17 @@ class ProfileController extends Controller
 
         $user->username = $request['username'];
         $user->department = $request['department'];
+
+        if ($request->hasFile('profile_photo')) {
+          $profile_photo = $request->file('profile_photo');
+          $filename = time() . '.' . $profile_photo->getClientOriginalExtension();
+          $profile_photo->storeAs('public/profile_photos', $filename);
+          $user->profile_photo_path = 'storage/profile_photos/' . $filename;
+      }
+      
         $user->save();
 
         return redirect('/profile/' . $user->username);
     }
+    
 }
-?>
