@@ -18,10 +18,10 @@
             <h1 class=" text-its text-3xl font-bold text-center mb-4 flex flex-col items-center justify-center" style="color: rgb(2,56,128)">
                 TrendItAll
             </h1>
-            <form action="/login" method="POST" class="bg-white shadow-lg rounded px-8 py-6 mb-4">
+            <form action="/login" method="POST" class="bg-its-blue bg-opacity-30 shadow-lg rounded px-8 py-6 mb-4">
                 @csrf
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2" for="username">
+                    <label class="block text-blue-50 font-bold mb-2" for="username">
                         Username
                     </label>
                     <input
@@ -32,7 +32,7 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2" for="password">
+                    <label class="block text-blue-50 font-bold mb-2" for="password">
                         Password
                     </label>
                     <input
@@ -40,7 +40,7 @@
                         id="password" name="password" type="password" placeholder="Password" required>
                 </div>
                 <div class="flex items-center justify-between">
-                    <button type="submit" class="mt-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700" type="submit" >
+                    <button type="submit" class="mt-1 w-full items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700" type="submit" >
                         Login
                     </button>
                 </div>

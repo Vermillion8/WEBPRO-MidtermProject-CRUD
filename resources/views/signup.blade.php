@@ -5,13 +5,13 @@
     <div class="flex justify-center items-center min-h-screen">
         <div class="w-full max-w-md">
             <h1 class=" text-its text-3xl font-bold text-center mb-4 flex flex-col items-center justify-center" style="color: rgb(2,56,128)">
-                TrendItAll
+                TrendItAll Register
             </h1>
-            <form class="bg-white shadow-lg rounded px-8 py-6 mb-4" method="POST">
+            <form class="bg-its-blue bg-opacity-30 shadow-lg rounded px-8 py-6 mb-4" method="POST">
                 @csrf
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2">
+                    <label class="block text-blue-50 font-bold mb-2">
                         Username
                     </label>
                     <input
@@ -22,7 +22,7 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2">
+                    <label class="block text-blue-50 font-bold mb-2">
                         Department
                     </label>
                     <input
@@ -33,7 +33,7 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2">
+                    <label class="block text-blue-50 font-bold mb-2">
                         Password
                     </label>
                     <input
@@ -43,11 +43,12 @@
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <button type="submit" class="mt-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+                <button type="submit" class="mt-1 w-full items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
                     Sign Up
                 </button>
                 <div class="mt-2">
-                    <span>Already have an account? </span><a href="/login" class="text-blue-700">Login</a>
+                    <span class="text-blue-50 ">Already have an account? </span>
+                    <a href="/login" class="text-blue-700">Login</a>
                 </div>
             </form>
         </div>

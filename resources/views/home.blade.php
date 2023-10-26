@@ -5,7 +5,7 @@
     Home
   </h1>
 
-  <form action="{{ route('search') }}" method="GET" class="mb-4">
+ <form action="{{ route('search') }}" method="GET" class="mb-4">
     <div class="relative">
         <input
             type="text"
@@ -26,10 +26,10 @@
         <a href="/profile/{{ $post->user->username }}" class="text-its-blue font-bold">
           {{ $post->user->username }}
         </a>
-        <span class="text-gray-400"> on {{ $post->created_at->format('M d, Y') }} at {{ $post->created_at->format('h:i A') }}</span>
+        <span class="text-xs text-blue-500"> on {{ $post->created_at->format('M d, Y') }} at {{ $post->created_at->format('h:i A') }}</span>
         
         @if ($post->category) 
-          <div class="bg-blue-500 text-white text-xs py-1 px-2 rounded-full">
+          <div class="bg-its-blue bg-opacity-80 text-white text-xs py-1 px-2 rounded-lg">
             Category: {{ $post->category->name }}
           </div>
         @endif

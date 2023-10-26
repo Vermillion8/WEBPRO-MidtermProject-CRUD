@@ -11,12 +11,12 @@
                 Make a new post
             </h1>
 
-            <form action="/newpost" method="POST" class="bg-white shadow-md rounded p-6">
+            <form action="/newpost" method="POST" class="bg-its-blue bg-opacity-30 shadow-lg rounded px-8 py-6 mb-4">
                 @csrf
 
                 <div class="mb-4">
                     <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category</label>
-                    <select name="category_id" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <select name="category_id" id="category" class="shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="flex justify-start">
-                    <button class="bg-its-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring-2 ring-its-blue ring-offset-2" type="submit">Post</button>
+                    <button class="w-full bg-its-blue hover:bg-blue-700 bg-opacity-50 border-2 border-blue-600 text-white font-bold py-2 px-4 rounded focus:ring-2 ring-its-blue ring-offset-2" type="submit">Post</button>
                 </div>
             </form>
         </div>
